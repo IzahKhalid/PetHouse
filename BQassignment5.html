@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+  <title>Pethouse | Find Your Friend</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, 'Segoe UI', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #fefaf5;
+      color: #2d2a24;
+      line-height: 1.4;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1.5rem 2rem;
+    }
+
+    /* header + nav */
+    .navbar {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid #f0e2d0;
+      padding-bottom: 1rem;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      background: linear-gradient(135deg, #c47e5a, #a55d3a);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.6rem;
+      flex-wrap: wrap;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #4a3b2c;
+      transition: 0.2s;
+      font-size: 1rem;
+    }
+
+    .nav-links a:hover {
+      color: #c47e5a;
+    }
+
+    /* hero section: Let's Find Your Friend */
+.hero {
+  text-align: center;
+  margin: 2.5rem 0 2rem;
+  background-image: url('Images/Dog_design.png');
+  background-size: cover;
+  background-position: center;
+  height: 462px; 
+    /* Add these for text positioning */
+  display: flex;
+  flex-direction: column;  /* Stacks items vertically */
+  justify-content: flex-end;  /* Pushes content down */
+  align-items: flex-start;  /* Aligns content to the left */
+  padding-left: 40px;  /* Optional: adds space from left edge */
+  padding-bottom: 200px;  /* Adjust how far "a bit below" is */
+}
+
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #3b2a1f;
+      letter-spacing: -0.02em;
+      background-size: 40px;
+      padding-left: 0.1rem;
+      display: inline-block;
+    }
+
+    .hero p {
+
+      font-size: 1.2rem;
+      color: #6b5a48;
+      margin-top: 0.8rem;
+      max-width: 550px;
+      /*margin-left: auto;*/
+      margin-right: auto;
+    }
+
+    /* how it works + cards style */
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      text-align: center;
+      margin: 3rem 0 1.5rem;
+      color: #3b2a1f;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+
+    .how-it-works {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .step-card {
+      background: white;
+      border-radius: 2rem;
+      padding: 1.5rem 1.2rem;
+      text-align: center;
+      flex: 1 1 180px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.03), 0 2px 6px rgba(0,0,0,0.05);
+      transition: all 0.2s;
+      border: 1px solid #f2e4d8;
+    }
+
+    .step-card:hover {
+      transform: translateY(-5px);
+      border-color: #e6cfbe;
+    }
+
+    .step-num {
+      background: #fae8de;
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 60px;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: #b十五; 
+      color: #b45f3a;
+      margin-bottom: 1rem;
+    }
+
+    .step-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .step-card p {
+      color: #6c5e4e;
+      font-size: 0.9rem;
+    }
+
+    /* what our pets look like (gallery) */
+    .pets-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.8rem;
+      margin: 2rem 0 1rem;
+    }
+
+    .pet-card {
+      background: white;
+      border-radius: 2rem;
+      width: 180px;
+      text-align: center;
+      padding: 1rem 0.8rem 1.2rem;
+      box-shadow: 0 5px 12px rgba(0,0,0,0.05);
+      transition: 0.2s;
+      border: 1px solid #f0e0d2;
+    }
+
+    .pet-avatar {
+      width: 100px;
+      height: 100px;
+      background: #f5ede6;
+      border-radius: 50%;
+      margin: 0 auto 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .pet-card h4 {
+      font-weight: 600;
+      color: #4a3726;
+    }
+
+    .pet-card p {
+      font-size: 0.8rem;
+      color: #9b7e64;
+    }
+
+    /* subscribe box */
+    .subscribe-section {
+      background: #f2e4d8;
+      background-image: url('Images/pattern.png');
+      background-size: cover;
+      border-radius: 2rem;
+      padding: 2rem 2rem;
+      margin: 3rem 0 2rem;
+      text-align: center;
+    }
+
+    .subscribe-section h3 {
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: #2d241b;
+    }
+
+    .subscribe-form {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-top: 1.3rem;
+    }
+
+    .subscribe-form input {
+      padding: 0.9rem 1.2rem;
+      border-radius: 3rem;
+      border: none;
+      width: 260px;
+      font-size: 1rem;
+      background: white;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+
+    .subscribe-form button {
+      background: #c47e5a;
+      border: none;
+      padding: 0.9rem 1.8rem;
+      border-radius: 3rem;
+      font-weight: 600;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .subscribe-form button:hover {
+      background: #a8623e;
+    }
+
+    /* FAQ accordion style (frequent ask questions) */
+    .faq-list {
+      max-width: 800px;
+      margin: 1.5rem auto 2rem;
+    }
+
+    .faq-item {
+      background: white;
+      border-radius: 1.5rem;
+      margin-bottom: 1rem;
+      padding: 1rem 1.5rem;
+      border: 1px solid #eedfcb;
+      transition: 0.1s;
+    }
+
+    .faq-question {
+      font-weight: 700;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      color: #3b2a1f;
+    }
+
+    .faq-question span:last-child {
+      font-size: 1.4rem;
+      color: #c47e5a;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: 0.25s ease;
+      color: #6a5a48;
+      padding-top: 0;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 180px;
+      padding-top: 0.8rem;
+    }
+
+    /* footer simple */
+    .footer {
+      text-align: center;
+      border-top: 1px solid #e7d9ce;
+      padding: 2rem 1rem 1.5rem;
+      margin-top: 2rem;
+      font-size: 0.8rem;
+      color: #927f69;
+      background-image: url('Images/liness.png');
+      background-size: cover;
+      text-align: center;
+       background-repeat: no-repeat;
+    }
+
+    @media (max-width: 680px) {
+      .container {
+        padding: 1rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+        padding-left: 2rem;
+        background-size: 28px;
+      }
+      .section-title {
+        font-size: 1.6rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <!-- header with navigation: Home, About Pets, FAQ -->
+  <div class="navbar">
+    <div class="logo">🐾 PETHOUSE</div>
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About Pets</a>
+      <a href="#">FAQ</a>
+    </div>
+  </div>
+
+  <!-- Let's Find Your Friend section -->
+  <div class="hero">
+    <h1>Let's Find Your Friend</h1>
+    <p>Adopt love, bring happiness — a loyal companion awaits.</p>
+  </div>
+
+  <!-- How It Works -->
+  <div style="text-align: center;">
+    <h2 class="section-title">🐕 How It Works</h2>
+  </div>
+  <div class="how-it-works">
+    <div class="step-card">
+      <div class="step-num">1</div>
+      <h3>Browse</h3>
+      <p>Explore adorable pets looking for home</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">2</div>
+      <h3>Meet</h3>
+      <p>Schedule a visit or video call</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">3</div>
+      <h3>Adopt</h3>
+      <p>Complete the adoption process</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">4</div>
+      <h3>Enjoy</h3>
+      <p>Bring your new best friend home</p>
+    </div>
+  </div>
+
+  <!-- What Our Pets Look Like (gallery) -->
+  <div style="text-align: center;">
+    <h2 class="section-title">🐶 What Our Pets Look Like</h2>
+  </div>
+  <div class="pets-grid">
+    <div class="pet-card">
+      <div class="pet-avatar"> 
+        <img src="Images/retriever.png" alt="Golden retriever" style="width: 150px; max-width: 800px;"></div>
+      <h4>Bailey</h4>
+      <p>Golden Retriever • 2yo</p>
+    </div>
+    <div class="pet-card">
+      <div class="pet-avatar">
+          <img src="Images/tabby.png" alt="Tabby cat" style="width: 200px; max-width: 100px;">
+      </div>
+      <h4>Luna</h4>
+      <p>Tabby Cat • 1yo</p>
+    </div>
+    <div class="pet-card">
+      <div class="pet-avatar">
+          <img src="Images/poodle.png" alt="Poodle mix" style="width: 200px; max-width: 80px;">
+      </div>
+      <h4>Charlie</h4>
+      <p>Poodle Mix • 3yo</p>
+    </div>
+    <div class="pet-card">
+      <div class="pet-avatar">
+        <img src="Images/rabbit.png" alt="Rabbit" style="width: 100px; max-width: 80px;">
+      </div>
+      <h4>Coco</h4>
+      <p>Rabbit • 6mo</p>
+    </div>
+  </div>
+
+  <!-- Subscribe To Our Site -->
+  <div class="subscribe-section">
+    <h3>📧 Subscribe To Our Site</h3>
+    <p style="margin-top: 0.4rem;">Get updates on new pets & adoption tips</p>
+    <div class="subscribe-form">
+      <input type="email" placeholder="Your email address" id="subscribeEmail">
+      <button id="subscribeBtn">Subscribe</button>
+    </div>
+    <small id="subFeedback" style="display: block; margin-top: 0.6rem; color: #7d6248;"></small>
+  </div>
+
+  <!-- Frequent Ask Questions (FAQ) -->
+  <div style="text-align: center;">
+    <h2 class="section-title">❓ Frequently Asked Questions</h2>
+  </div>
+  <div class="faq-list" id="faqContainer">
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>How do I adopt a pet?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        Simply browse our pets, submit an adoption application, and our team will guide you through the process.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>What are the adoption fees?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        Fees vary from $50 to $250 depending on age and medical history, covering vaccinations and microchip.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Can I meet the pet before adoption?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        Absolutely! We encourage meet-and-greet sessions to ensure a perfect match for your family.
+      </div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">
+        <span>Do you have senior pets?</span>
+        <span>+</span>
+      </div>
+      <div class="faq-answer">
+        Yes, we love senior companions! Many of them are waiting for a cozy retirement home.
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    🐾 PETHOUSE — love, rescue, adopt. © 2026
+  </div>
+</div>
+
+<script>
+  // Interactive FAQ toggle (accordion)
+  const faqItems = document.querySelectorAll('.faq-item');
+  faqItems.forEach(item => {
+    const questionDiv = item.querySelector('.faq-question');
+    questionDiv.addEventListener('click', () => {
+      // close others if you want (optional) — but simple toggle active class
+      item.classList.toggle('active');
+      // change plus/minus sign
+      const signSpan = questionDiv.querySelector('span:last-child');
+      if (item.classList.contains('active')) {
+        signSpan.textContent = '−';
+      } else {
+        signSpan.textContent = '+';
+      }
+    });
+  });
+
+  // Subscribe button simple feedback (no backend, just alert-like message)
+  const subBtn = document.getElementById('subscribeBtn');
+  const emailInput = document.getElementById('subscribeEmail');
+  const feedbackSpan = document.getElementById('subFeedback');
+
+  subBtn.addEventListener('click', () => {
+    const email = emailInput.value.trim();
+    if (!email) {
+      feedbackSpan.textContent = '🐾 Please enter a valid email address.';
+      feedbackSpan.style.color = '#b1624b';
+      return;
+    }
+    if (!email.includes('@') || !email.includes('.')) {
+      feedbackSpan.textContent = '🐕 Hmm, that doesn’t look like an email. Try again!';
+      feedbackSpan.style.color = '#b1624b';
+      return;
+    }
+    feedbackSpan.innerHTML = '✅ Thanks! You’re subscribed to PETHOUSE updates.';
+    feedbackSpan.style.color = '#4c7a5a';
+    emailInput.value = '';
+    setTimeout(() => {
+      if (feedbackSpan) feedbackSpan.innerHTML = '';
+    }, 3500);
+  });
+
+  // optional: smooth navigation placeholder (no page reload, just scroll to sections)
+  const navLinks = document.querySelectorAll('.nav-links a');
+  navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const text = link.innerText.toLowerCase();
+      if (text.includes('home')) {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (text.includes('about pets')) {
+        const petsSection = document.querySelector('.pets-grid');
+        if (petsSection) petsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (text.includes('faq')) {
+        const faqSection = document.querySelector('.faq-list');
+        if (faqSection) faqSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  // default open first FAQ item? optional, but keep clean: none open initially, but we ensure first click works.
+  // set initial plus sign (already "+")
+  // also avoid double minus on page load
+  faqItems.forEach(item => {
+    const sign = item.querySelector('.faq-question span:last-child');
+    if (!item.classList.contains('active')) {
+      sign.textContent = '+';
+    } else {
+      sign.textContent = '−';
+    }
+  });
+</script>
+</body>
+</html>
